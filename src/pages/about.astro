@@ -1,4 +1,14 @@
 ---
+const pageTitle = "About Me";
+const identity = {
+      firstName: "Steve",
+      lastName: "Giovannetti"
+      };
+const skills = ["Procrastination", "Being Bored"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
 
 ---
 
@@ -8,14 +18,23 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>About</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
 	        <a href="/">Home</a>
 	        <a href="/about/">About</a>
                 <a href="/blog/">Blog</a>
 		
-		<h1>About My Astro Site</h1>
-		<p>This is where I'd say somthing interesting. </p>
+		<h1>{pageTitle}</h1>
+		<p>My name is {identity.firstName}</p>
+		<p>My skills are:</p>
+		<ul>
+		   {skills.map((skill) => <li>{skill}</li>)}
+		</ul>
+		{happy && <p>I'm happy!</p>}
+		{finished && <p>I'm finished!</p>}
+		{goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not to finish in 3 days.</p>}
+
+
 	</body>
 </html>
